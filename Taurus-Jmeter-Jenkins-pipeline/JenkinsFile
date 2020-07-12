@@ -1,0 +1,35 @@
+pipeline{
+    agent any
+    stages{
+        stage("Deploy AMQ to Kubernetes"){
+            steps{
+                echo "========Deploying AMQ to Kubernetes A========"
+            }
+        }
+
+        stage("Deploying Taurus Jmeter to K8s"){
+        steps{
+                echo "========Deploying AMQ to Kubernetes A========"
+            }
+        }    
+
+        stage("Execute test"){
+            steps{
+                echo "========Executing tests A========"
+                git 'https://github.com/sprasai/Jenkins-Poc.git'
+                bzt 'Taurus-Jmeter-Jenkins-pipeline/Taurus-only-test.yml'
+            }
+        }          
+    }
+    post{
+        always{
+            echo "========always clean up========"
+        }
+        success{
+            echo "========pipeline executed successfully ========"
+        }
+        failure{
+            echo "========pipeline execution failed========"
+        }
+    }
+}
