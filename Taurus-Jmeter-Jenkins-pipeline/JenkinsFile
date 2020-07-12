@@ -16,8 +16,10 @@ pipeline{
         stage("Execute test"){
             steps{
                 echo "========Executing tests A========"
-                git 'https://github.com/sprasai/Jenkins-Poc.git'
-                bzt 'Taurus-Jmeter-Jenkins-pipeline/Taurus-only-test.yml'
+                sh 'echo $PATH'
+                which bzt 
+                //git 'https://github.com/sprasai/Jenkins-Poc.git'
+               // bzt 'Taurus-Jmeter-Jenkins-pipeline/Taurus-only-test.yml'
             }
         }          
     }
