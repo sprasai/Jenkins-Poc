@@ -17,7 +17,7 @@ pipeline{
             steps{
                 echo "========Executing tests A========"
                 sh 'echo $PATH'
-                which bzt 
+                sh 'which bzt' 
                 //git 'https://github.com/sprasai/Jenkins-Poc.git'
                // bzt 'Taurus-Jmeter-Jenkins-pipeline/Taurus-only-test.yml'
             }
