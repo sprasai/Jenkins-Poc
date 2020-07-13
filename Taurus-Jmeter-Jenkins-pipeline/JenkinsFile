@@ -1,8 +1,9 @@
 pipeline{
-    agent dockerNode('cloudbees/jnlp-slave-with-java-build-tools') {
+    agent {
+        dockerNode('cloudbees/jnlp-slave-with-java-build-tools') {
     // some block
     }
-    
+    }
     stages{
         stage("Deploy AMQ to Kubernetes"){
             steps{
